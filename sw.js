@@ -8,9 +8,9 @@ var CACHE_NAME = 'my-site-cache-v1';
 // Service Worker の管理対象
 //    ※ 存在しないファイルを指定すると Uncaught (in promise) TypeError: Request failed エラーが出るので注意
 var urlsToCache = [
-  '/',
-  '/styles/main.css',
-  '/script/main.js'
+  '/service-worker-test/',
+  '/service-worker-test/styles/main.css',
+  '/service-worker-test/script/main.js'
 ];
 
 
