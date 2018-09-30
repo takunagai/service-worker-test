@@ -1,5 +1,3 @@
-// https://developers.google.com/web/fundamentals/primers/service-workers/?hl=ja#https
-
 /**
  * Service Worker のインストール
  */
@@ -8,6 +6,7 @@
 var CACHE_NAME = 'my-site-cache-v1';
 
 // Service Worker の管理対象
+//    ※ 存在しないファイルを指定すると Uncaught (in promise) TypeError: Request failed エラーが出るので注意
 var urlsToCache = [
   '/',
   '/styles/main.css',
@@ -24,8 +23,8 @@ self.addEventListener('install', function(event) {
     caches.open(CACHE_NAME)
       .then(function(cache) {
         console.log('Opened cache');
-        // return cache.addAll(urlsToCache);
-        return cache.addAll(urlsToCache.map(url => new Request(url, {credentials: 'same-origin'}))); // https://kenjimorita.jp/amp_pwa_serviceworker_cache_401-unauthorized/
+        return cache.addAll(urlsToCache);
+        // return cache.addAll(urlsToCache.map(url => new Request(url, {credentials: 'same-origin'}))); // エラーの場合：https://kenjimorita.jp/amp_pwa_serviceworker_cache_401-unauthorized/
       })
   );
 });
