@@ -24,7 +24,7 @@
  * Service Worker の登録
  */
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./service-worker-test/sw.js').then(function(registration) {
+  navigator.serviceWorker.register('./sw.js').then(function(registration) {
     // 登録成功
     console.log('ServiceWorker registration successful with scope: ', registration.scope);
   }).catch(function(err) {
