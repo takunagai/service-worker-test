@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Service Worker のテスト</title>
+
+    <style>
+      // styling Code Here
+    </style>
+
+  </head>
+
+
+  <body>
+    <h1>Service Worker のテスト</h1>
+    <p><a href="https://developers.google.com/web/fundamentals/primers/service-workers/?hl=ja#https" target="_blank">Service Worker の紹介 - Google Developers</a></p>
+    <ul>
+      <li>HTTPS か localhost でしか動かない。github.pages を使えばカンタン</li>
+    </ul>
+
+
+<script>
+/**
+ * Service Worker の登録
+ */
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').then(function(registration) {
+    // 登録成功
+    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+  }).catch(function(err) {
+    // 登録失敗 :(
+    console.log('ServiceWorker registration failed: ', err);
+  });
+}
+</script>
+  </body>
+</html>
